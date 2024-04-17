@@ -6,14 +6,16 @@ char field[20][20];
 int answer;
 
 void bt(int cur_r, int cur_c, int jump_cnt) {
-    if(jump_cnt == 3) {
+    char cur_color = field[cur_r][cur_c];
+
+    if(jump_cnt == 2) {
+        if(field[r-1][c-1] == cur_color) return;
         answer++;
         return;
     }
 
-    char cur_color = field[cur_r][cur_c];
-    for(int i{cur_r + 1}; i < r; i++) {
-        for(int j{cur_c + 1}; j < c; j++) {
+    for(int i{cur_r + 1}; i < r - 1; i++) {
+        for(int j{cur_c + 1}; j < c - 1; j++) {
             if(field[i][j] == cur_color) continue;
 
             bt(i, j, jump_cnt + 1);
