@@ -30,6 +30,11 @@ int main() {
         }
     }
 
+    if(field[0][0] == field[r-1][c-1]) {
+        cout << "0";
+        return 0;
+    }
+
     bt(0, 0, 0);
     cout << answer;
     // 여기에 코드를 작성해주세요.
