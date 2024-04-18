@@ -1,6 +1,5 @@
 #include <iostream>
-#include <vector>
-#include <algorithm>
+#include <climits>
 using namespace std;
 
 int n;
@@ -16,19 +15,20 @@ int main() {
         }
     }
 
-    vector<int> three_sum(n * n);
-
-    int idx = 0;
+    int max_sum = INT_MIN;
     for(int i{ 0 }; i < n; i++) {
         for(int j{ 0 }; j < n - 2; j++) {
-            three_sum[idx++] = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
+            for(int k{ i }; k < n; k++) {
+                for(int l{ j }; l < n - 2; l++) {
+                    if(i == k && l <= j + 2) continue;
+                    max_sum = max(max_sum, arr[i][j] + arr[i][j + 1] + arr[i][j + 2]
+                                            + arr[k][l] + arr[k][l + 1] + arr[k][l + 2]);
+                }
+            }
         }
-        idx += n - 1;
     }
 
-    sort(three_sum.begin(), three_sum.end(), greater<>());
-
-    cout << three_sum[0] + three_sum[1];
+    cout << max_sum;   
     // 여기에 코드를 작성해주세요.
     return 0;
 }
