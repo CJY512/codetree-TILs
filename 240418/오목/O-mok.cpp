@@ -33,6 +33,7 @@ bool isBingo(const int x, const int y, const int dir) {
                 return false;
             break;
         default:
+            return false;
             break;
     }
 
