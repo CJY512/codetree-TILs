@@ -23,7 +23,7 @@ int main() {
         for(int j{ 0 }; j < n - 2; j++) {
             three_sum[idx++] = arr[i][j] + arr[i][j + 1] + arr[i][j + 2];
         }
-        idx += n;
+        idx += n - 1;
     }
 
     sort(three_sum.begin(), three_sum.end(), greater<>());
