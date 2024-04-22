@@ -9,7 +9,7 @@ int n;
 bool cmp(const string s1, const string s2) {
     string s = s1 + s2;
     string s_rev = s2 + s1;
-    return stoi(s) > stoi(s_rev);
+    return stoll(s) > stoll(s_rev);
 }
 
 int main() {
