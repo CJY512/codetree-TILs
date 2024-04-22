@@ -31,9 +31,12 @@ int main() {
 
     int max_score{ 0 };
     for(int game_time{ 1 }; game_time <= n; game_time++) {
-        Bomb bomb = bombs.top(); bombs.pop();
-        if (game_time <= bomb.time) {
-            max_score += bomb.score;
+        while(!bombs.empty()) {
+            Bomb bomb = bombs.top(); bombs.pop();
+            if (game_time <= bomb.time) {
+                max_score += bomb.score;
+                break;
+            }    
         }
     }
 
