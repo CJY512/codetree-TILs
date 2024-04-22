@@ -23,11 +23,7 @@ int main() {
         dp[i + 5] = min(dp[i] + 1, dp[i + 5]);
     }
 
-    // cout << (dp[n] == INT_MAX) ? -1 : dp[n];
-    if (dp[n] == INT_MAX) 
-        cout << -1;
-    else 
-        cout << dp[n];
+    cout << (dp[n] == INT_MAX ? -1 : dp[n]);
     
     // 여기에 코드를 작성해주세요.
     return 0;
