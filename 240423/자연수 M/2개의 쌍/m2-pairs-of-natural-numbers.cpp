@@ -35,7 +35,7 @@ int main() {
     int max_sum{ 0 };
     while(i < j) {
         max_sum = max(max_sum, arr[i].y + arr[j].y);
-        int sub = max(arr[i].x, arr[j].x);
+        int sub = min(arr[i].x, arr[j].x);
         arr[i].x -= sub;
         arr[j].x -= sub;
         if(arr[i].x == 0) i++;
