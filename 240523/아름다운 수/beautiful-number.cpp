@@ -19,10 +19,10 @@ int dp[15];
 
 void make_dp() {
     for (int i{ 1 }; i <= 10; i ++) {
-        for (int j{ 1 }; j < i; j++) {
-            dp[i] += dp[j];
+        for (int j{ 1 }; j < i && j <= 4; j++) {
+            dp[i] += dp[i - j];
         }
-        dp[i] += 1;
+        if (i <= 4) dp[i] += 1;
     }
 }
 int main() {
