@@ -18,7 +18,7 @@ int main() {
 
     std::cin >> n;
 
-    int ans;
+    int ans{ 0 };
     bt(n, ans);
 
     std::cout << ans;
