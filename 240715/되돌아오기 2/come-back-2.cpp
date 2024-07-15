@@ -21,7 +21,7 @@ int main() {
     
     for(auto c : com) {
         if (c == 'L') {
-            dir = (dir - 1) % 4;
+            dir = (dir + 3) % 4;
         }
         if (c == 'R') {
             dir = (dir + 1) % 4;
