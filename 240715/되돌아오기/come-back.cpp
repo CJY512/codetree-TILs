@@ -46,7 +46,7 @@ int main() {
             cur_y += dy[dir_num];
             cnt++;
             board[cur_x][cur_y] = 1;
-            if (cur_x == START_POS && cur_y == START_POS) {
+            if (answer == -1 && cur_x == START_POS && cur_y == START_POS) {
                 answer = cnt;
             }
         }
