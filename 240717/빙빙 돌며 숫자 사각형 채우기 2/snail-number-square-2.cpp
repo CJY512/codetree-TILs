@@ -10,6 +10,18 @@ bool oob(const int x, const int y) {
     return x < 0 || y < 0 || x >= n || y >= m;
 }
 
+bool Reachable(const int x, const int y) {
+    return !oob(x, y) && board[x][y] == 0;
+}
+
+void Forward(int &x, int &y, const int dir, int &num) {
+    while(Reachable(x + dx[dir], y + dy[dir])) {
+        x += dx[dir];
+        y += dy[dir];
+        board[x][y] = num++;
+    }
+}
+
 void Snail() {
     int x{ -1 };
     int y{ 0 };
@@ -21,19 +33,16 @@ void Snail() {
             dir = (dir + 1) % 4;
             int nx = x + dx[dir];
             int ny = y + dy[dir];
-            if (oob(nx, ny) || board[nx][ny] != 0) continue;
-
-            cout << "forwardable\ndir="<<dir<<"\n";
-            forwardable = true;
-            break;
+            if (Reachable(nx, ny)) {
+                forwardable = true;
+                break;
+            }
         }
 
-        if(!forwardable) break;
-
-        while(!oob(x + dx[dir], y + dy[dir]) && board[x + dx[dir]][y + dy[dir]] == 0) {
-            x += dx[dir];
-            y += dy[dir];
-            board[x][y] = num++;
+        if(forwardable) {
+            Forward(x, y, dir, num);
+        } else {
+            break;
         }
     }
 }
