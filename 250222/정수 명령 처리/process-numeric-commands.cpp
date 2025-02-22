@@ -20,9 +20,10 @@ int main() {
         } else if (cmd == "empty") {
             std::cout << stk.empty() << "\n";
         } else if (cmd == "pop") {
-            arg = stk.top();
-            std::cout << arg << "\n";
+            std::cout << stk.top() << "\n";
             stk.pop();
+        } else if (cmd == "top") {
+            std::cout << stk.top() << "\n";
         } else {
             std::cout << "cannot reach here!\n";
         }
